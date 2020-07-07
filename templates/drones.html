@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for drone in drones %}
+ 
+<div class="container-fluid">
+<div class="row">
+ <div class="col-md-6">
+ 
+<div class="accordion" id="accordionExample">
+ <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Brand
+        </button>
+      </h2>
+
+
+      <button href="{{url_for('edit_drone', drone_id=drone._id)}}" type="button" class="btn btn-success">Edit</button>
+ <button href="{{url_for('edit_drone', drone_id=drone._id)}}" type="button" class="btn btn-success">Done</button>
+    </div>
+
+
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+         {{drone.brand}}
+      </div>
+    </div>
+  </div>
+ </div>
+
+ <div class="row">
+ <div class=" col-md-6">
+
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Price
+        </button>
+      </h2>
+      <button type="button" class="btn btn-success">Edit</button>
+ <button type="button" class="btn btn-success">Done</button>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        {{drone.price}}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Comment
+        </button>
+      </h2>
+      <button type="button" class="btn btn-success">Edit</button>
+ <button type="button" class="btn btn-success">Done</button>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+     {{drone.comment}}
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+</div>
+</div>
+
+
+ 
+
+
+  {% endfor %}
+    {% endblock %}
